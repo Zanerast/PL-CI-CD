@@ -11,7 +11,7 @@ class ExpressionEvaluator(
 ) {
     
     fun evaluate(): Double {
-        return evaluateTerm(expression).value
+        return evaluateExpression(expression).value
     }
     
     private fun evaluateExpression(expression: List<ExpressionPart>): ExpressionResult {
