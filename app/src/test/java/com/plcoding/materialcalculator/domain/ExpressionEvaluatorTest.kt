@@ -8,6 +8,25 @@ class ExpressionEvaluatorTest {
     private lateinit var expressionEvaluator: ExpressionEvaluator
     
     @Test
+    fun `expression evaluated correctly again`() {
+        expressionEvaluator = ExpressionEvaluator(
+            listOf(
+                ExpressionPart.Number(1.0),
+                ExpressionPart.Op(Operation.ADD),
+                ExpressionPart.Number(2.0),
+                ExpressionPart.Op(Operation.MULTIPLY),
+                ExpressionPart.Number(3.0),
+                ExpressionPart.Op(Operation.SUBTRACT),
+                ExpressionPart.Number(5.0),
+            )
+        )
+        
+        // Then
+        assertThat(expressionEvaluator.evaluate())
+            .isEqualTo(2.0)
+    }
+    
+    @Test
     fun `expression evaluated correctly`() {
         expressionEvaluator = ExpressionEvaluator(
             listOf(
