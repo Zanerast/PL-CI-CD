@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.plcoding.materialcalculator.TestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -59,7 +60,10 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
-
+    implementation "com.google.dagger:hilt-android:$google_dagger"
+    kapt "com.google.dagger:hilt-compiler:$google_dagger"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$google_dagger_test"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$google_dagger_test"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
 
     implementation 'com.google.android.material:material:1.6.1'
